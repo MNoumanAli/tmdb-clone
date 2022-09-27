@@ -1,0 +1,50 @@
+.hero-container{
+    color: white;
+    box-sizing: border-box;
+    height: 300px;
+    background-image: url('movie.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0 3em;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width:100%;
+}
+.hero-content p {
+    font-size: 2.7rem;
+}
+.hero-content .welcome{
+    font-weight: bolder;
+}
+.hero-container .input{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero-container .hero-input{
+    width:90%;
+    padding: 1em;
+    margin-top: 2.4em;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border: none;
+    font-size: 1.2rem;
+}
+.hero-container .search-btn{
+    width: 10%;
+    border: none;
+    padding: 1em;
+    font-size: 1.2rem;
+    margin-top: 2.4em;
+    background-color: #1BD2AE;
+    color: white;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    font-weight: bold;
+}
+.search-btn:hover{
+    color: #032541;
+}
