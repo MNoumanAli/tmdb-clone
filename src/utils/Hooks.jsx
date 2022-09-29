@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import {fetchPopularMovies, fetchPopularShows} from "../API/index"
+import {fetchDetail, fetchPopularMovies, fetchPopularShows} from "../API/index"
 
 export const useGetPMovie = () => {
     const [popularMovies, updateMovies] = React.useState([])
@@ -34,4 +34,23 @@ export const useGetPShows = () => {
     }, [])
     console.log(popularShows)
     return popularShows
+}
+
+export const useGetMovieDetail = (id) => {
+
+    const [detail, updateDetail] = React.useState([])
+    useEffect(() => {
+        try{
+            fetchDetail("movie", id)
+            .then(data => {
+                updateDetail(data.data)
+            }).catch(err => {
+                console.log(err)
+            })
+        }catch(err)
+        {
+            console.log(err)
+        }
+    }, [id])
+    return detail
 }

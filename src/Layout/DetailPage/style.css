@@ -1,0 +1,42 @@
+.detail-page{
+    display: flex;
+    align-items: center;
+    padding: 2.4em 2.7em;
+    justify-content: space-between;
+    background-color: #0A2222;
+    color: white;
+}
+.detail-page .detail > div {
+    margin-bottom: 2em;
+}
+.detail-img {
+    border-radius: 12px;
+    width: 25%;
+}
+.detail-img img{
+    border-radius: 12px;
+    width: 100%;
+}
+.detail{
+    width: 70%;
+}
+.movie-detail div > p{
+    display: inline;
+    margin-right: 0.7em;
+}
+.detail-title{
+    font-size: 2.4rem;
+    font-weight: bold;
+}
+.overview-h{
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 0.7em;
+}
+.overview{
+    line-height: 21px;
+}
+.detail-tagline{
+    color: gray;
+    font-size: 1.2rem;
+}

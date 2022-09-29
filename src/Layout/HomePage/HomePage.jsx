@@ -3,7 +3,6 @@ import MovieCard from '../../Components/Cards/MovieCard/MovieCard'
 import TvShowCard from "../../Components/Cards/TvShowCard/TvShowCard"
 import Footer from '../../Components/Footer/Footer'
 import Hero from '../../Components/Hero/Hero'
-import NavBar from '../../Components/NavBar/NavBar'
 import {useGetPMovie, useGetPShows} from "../../utils/Hooks"
 function HomePage() {
 
@@ -18,7 +17,6 @@ function HomePage() {
     })
   return (
     <>
-       <NavBar/>
         <Hero/>
         <div className='card'>
           <p>Popular Movies</p>

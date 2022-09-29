@@ -6,3 +6,4 @@ const API = axios.create({baseURL : "https://api.themoviedb.org/3"})
 
 export const fetchPopularMovies = async () => await API.get(`/movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
 export const fetchPopularShows = async () => await API.get(`/tv/popular?api_key=${API_KEY}&language=en-US&page=1`)
+export const fetchDetail = async (type,id) => await API.get(`/${type}/${id}?api_key=${API_KEY}&language=en-US&page=1`)
