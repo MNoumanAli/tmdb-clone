@@ -9,5 +9,5 @@
 .card-list{
     display: flex;
     align-items: center;
-    overflow: scroll;
+    overflow-x: scroll;
 }
