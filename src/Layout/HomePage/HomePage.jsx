@@ -1,21 +1,37 @@
 import React from 'react'
 import MovieCard from '../../Components/Cards/MovieCard/MovieCard'
+import TvShowCard from "../../Components/Cards/TvShowCard/TvShowCard"
 import Footer from '../../Components/Footer/Footer'
 import Hero from '../../Components/Hero/Hero'
 import NavBar from '../../Components/NavBar/NavBar'
-import {useGetPMovie} from "../../utils/Hooks"
+import {useGetPMovie, useGetPShows} from "../../utils/Hooks"
 function HomePage() {
 
     const popularMovies = useGetPMovie()
     const movieCards = popularMovies.map(single => {
       return <MovieCard key={single.id} poster_path = {single.poster_path} release = {single.release_date}/>
     })
+
+    const popularShows = useGetPShows()
+    const showsCards = popularShows.map(single => {
+      return <TvShowCard key={single.id} poster_path = {single.poster_path} release = {single.release_date}/>
+    })
   return (
     <>
        <NavBar/>
         <Hero/>
-        <div>
-          {console.log(movieCards)}
+        <div className='card'>
+          <p>Popular Movies</p>
+          <div className='card-list'>
+            {movieCards}
+          </div>
+        </div>
+
+        <div className='card'>
+          <p>Popular TV Show</p>
+          <div className='card-list'>
+            {showsCards}
+          </div>
         </div>
         <Footer/>
     </> 

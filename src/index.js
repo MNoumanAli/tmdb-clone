@@ -5,6 +5,8 @@ import "../src/Components/NavBar/NavBar.css"
 import  "./Index.css"
 import "../src/Components/Hero/Hero.css"
 import  "../src/Components/Footer/Footer.css"
+import "../src/Components/Cards/Style/Cards.css"
+import "../src/Layout/HomePage/style.css"
 
 ReactDOM.render(
   <App/>,
