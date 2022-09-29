@@ -9,3 +9,19 @@
     border-radius: 7px;
     object-fit: cover;
 }
+.vote{
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+    width: 17px;
+    border-radius: 50%;
+    padding: 0.5em;
+    border: 3px solid #21D07A;
+    background-color: #081C22;
+    position: relative;
+    bottom: 24px;
+    left: 10px;
+}
+.vote p {
+    text-align: center;
+}

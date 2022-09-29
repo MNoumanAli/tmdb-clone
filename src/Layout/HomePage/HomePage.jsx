@@ -9,12 +9,12 @@ function HomePage() {
 
     const popularMovies = useGetPMovie()
     const movieCards = popularMovies.map(single => {
-      return <MovieCard key={single.id} poster_path = {single.poster_path} release = {single.release_date}/>
+      return <MovieCard key={single.id} poster_path = {single.poster_path} release = {single.release_date} vote = {single.vote_average}/>
     })
 
     const popularShows = useGetPShows()
     const showsCards = popularShows.map(single => {
-      return <TvShowCard key={single.id} poster_path = {single.poster_path} release = {single.release_date}/>
+      return <TvShowCard key={single.id} poster_path = {single.poster_path} release = {single.first_air_date} vote = {single.vote_average}/>
     })
   return (
     <>
