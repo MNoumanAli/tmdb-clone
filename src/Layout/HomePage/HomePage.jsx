@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from '../../Components/Footer/Footer'
 import Hero from '../../Components/Hero/Hero'
 import NavBar from '../../Components/NavBar/NavBar'
 import {useGetPMovie} from "../../utils/Hooks"
@@ -9,7 +10,8 @@ function HomePage() {
   return (
     <>
        <NavBar/>
-    <Hero/>
+        <Hero/>
+        <Footer/>
     </> 
   )
 }
