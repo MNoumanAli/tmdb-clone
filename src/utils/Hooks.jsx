@@ -1,14 +1,13 @@
 import React, { useEffect } from "react"
-import {getPopularMovies} from "../API/index"
+import {fetchPopularMovies} from "../API/index"
 
 export const useGetPMovie = () => {
     const [popularMovies, updateMovies] = React.useState([])
     useEffect(() => {
         try{
-            getPopularMovies()
+            fetchPopularMovies()
             .then(data => {
                 updateMovies(data["data"].results)
-                console.log(popularMovies)
             })
             .catch(err => console.log(err))
         }catch(err)
