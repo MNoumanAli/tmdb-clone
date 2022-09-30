@@ -1,5 +1,5 @@
-import React, { useEffect } from "react"
-import {fetchDetail, fetchPopularMovies, fetchPopularShows} from "../API/index"
+import React, { useEffect, useState } from "react"
+import {fetchDetail, fetchPopularMovies, fetchPopularShows, fetchSearchResult} from "../API/index"
 
 export const useGetPMovie = () => {
     const [popularMovies, updateMovies] = React.useState([])
@@ -53,4 +53,16 @@ export const useGetMovieDetail = (type, id) => {
         }
     }, [type, id])
     return detail
+}
+export const useGetResult = (type, search) => {
+    const [result, updateResult] = useState()
+    useEffect(() => {
+        fetchSearchResult(type, search)
+        .then(data => {
+            updateResult(data.data['results'])
+        }).catch(err => {
+            console.log(err)
+        })
+    }, [type,search])
+    return result
 }
