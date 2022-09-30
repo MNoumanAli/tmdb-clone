@@ -11,8 +11,8 @@ function App() {
         <NavBar/>
         <Routes>
           <Route path='/' element={<HomePage/>}/>
-          <Route path='/movie/:id' element={<DetailPage/>}/>
-          <Route path='/tv/:id' element={<DetailPage/>}/>
+          <Route path='/:type/:id' element={<DetailPage/>}/>
+          <Route path='/:type/:id' element={<DetailPage/>}/>
           <Route path='/search/:name' element={"Search"}/>
         </Routes>     
       </BrowserRouter>

@@ -36,13 +36,14 @@ export const useGetPShows = () => {
     return popularShows
 }
 
-export const useGetMovieDetail = (id) => {
+export const useGetMovieDetail = (type, id) => {
 
     const [detail, updateDetail] = React.useState([])
     useEffect(() => {
         try{
-            fetchDetail("movie", id)
+            fetchDetail(type, id)
             .then(data => {
+                console.log(data.data)
                 updateDetail(data.data)
             }).catch(err => {
                 console.log(err)
@@ -51,6 +52,6 @@ export const useGetMovieDetail = (id) => {
         {
             console.log(err)
         }
-    }, [id])
+    }, [type, id])
     return detail
 }
