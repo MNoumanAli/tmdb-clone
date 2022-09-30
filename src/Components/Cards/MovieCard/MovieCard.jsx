@@ -8,7 +8,7 @@ function MovieCard(props) {
 
     function showDescription()
     {
-        navigate(`/movie/${props.id}`)
+        navigate(`/${props.type}/${props.id}`)
     }
     return (
 

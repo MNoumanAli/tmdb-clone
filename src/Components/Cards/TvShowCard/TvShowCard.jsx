@@ -6,7 +6,7 @@ function TvShowCard(props) {
     const navigate = useNavigate()
     function showDescription()
     {
-        navigate(`/tv/${props.id}`)
+        navigate(`/${props.type}/${props.id}`)
     }
 
   return (

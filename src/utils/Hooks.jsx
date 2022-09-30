@@ -32,7 +32,6 @@ export const useGetPShows = () => {
             console.log(err)
         }
     }, [])
-    console.log(popularShows)
     return popularShows
 }
 

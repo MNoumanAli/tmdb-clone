@@ -3,7 +3,8 @@ import {  useParams } from 'react-router'
 import { useGetMovieDetail } from '../../utils/Hooks'
 function DetailPage() {
     const parms = useParams()
-    const detail = useGetMovieDetail(parms.type , parms.id)
+    const type = parms.type
+    const detail = useGetMovieDetail(type , parms.id)
     console.log(parms.type)
     let genre = ""
     for( let  i in detail.genres)
@@ -19,11 +20,11 @@ function DetailPage() {
         </div>
         <div className='detail'>
             <div className='movie-detail'>
-                <p className='detail-title'>{detail.title}</p>
+                <p className='detail-title'>{ type === "movie" ? detail.title : detail.name}</p>
                 <div>
-                <p>{detail.release_date}</p>
+                <p>{type === "movie" ? detail.release_date : detail.first_air_date}</p>
                 <p>{genre}</p>
-                <p>{detail.runtime}Min</p>
+                <p>{type === "movie" ? detail.runtime : detail.episode_run_time}Min</p>
                 </div>           
             </div>
             <div className='detail-tagline'>
