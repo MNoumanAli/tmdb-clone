@@ -52,17 +52,24 @@ export const useGetMovieDetail = (type, id) => {
             console.log(err)
         }
     }, [type, id])
-    return detail
+    return detail 
 }
 export const useGetResult = (type, search) => {
-    const [result, updateResult] = useState()
+    console.log("result")
+    const [result, updateResult] = useState([])
+    console.log("before")
+   
     useEffect(() => {
         fetchSearchResult(type, search)
-        .then(data => {
-            updateResult(data.data['results'])
-        }).catch(err => {
-            console.log(err)
+    .then(data => {
+        console.log(data.data['results'])
+        //use this syntax
+        updateResult(prev => {
+           return [...data.data['results'] ]
         })
-    }, [type,search])
+    }).catch(err => {
+        console.log(err)
+    })
+    }, [type, search])
     return result
 }

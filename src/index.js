@@ -8,6 +8,7 @@ import  "../src/Components/Footer/Footer.css"
 import "../src/Components/Cards/Style/Cards.css"
 import "../src/Layout/HomePage/style.css"
 import "../src/Layout/DetailPage/style.css"
+import "../src/Components/List/style.css"
 
 ReactDOM.render(
   <App/>,
