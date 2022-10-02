@@ -14,7 +14,7 @@ function ListItem(props) {
             <img src={POSTER_IMG} alt="poster" />
         </div>
         <div className="list-item-content">
-            <p>{props.title}</p>
+            <p className='item-title'>{props.title}</p>
             <p>{props.release}</p>
             <p>{props.overview}</p>
         </div>

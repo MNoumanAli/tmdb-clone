@@ -9,7 +9,7 @@ function List() {
     const result = useGetResult(type, name)
     console.log(result)
     const list_items = result.map(item => {
-      return <ListItem key={item.id} id={item.id} type = {type} overview={item.overview}  title = {item.title} poster_path = {item.poster_path}/>
+      return <ListItem key={item.id} id={item.id} type = {type} overview={item.overview} release = {type === "movie" ? item.release_date : item.first_air_date} title = {type === "movie" ? item.title : item.name} poster_path = {item.poster_path}/>
     })
   return (
     <div className='search-container'>
