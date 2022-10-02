@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import {fetchDetail, fetchKeyWords, fetchPopularMovies, fetchPopularShows, fetchSearchResult} from "../API/index"
+import {fetchDetail, fetchKeyWordData, fetchKeyWords, fetchPopularMovies, fetchPopularShows, fetchSearchResult} from "../API/index"
 
 export const useGetPMovie = () => {
     const [popularMovies, updateMovies] = React.useState([])
@@ -77,7 +77,7 @@ export const useGetKeywords = (type , id) => {
         fetchKeyWords(type , id)
         .then(data => {
             updateKeyWords(() => {
-                return [...data.data['keywords']]
+                return type === "movie" ? data.data['keywords'] : data.data['results']
             })
         }).catch(err => {
             console.log(err)
@@ -85,4 +85,18 @@ export const useGetKeywords = (type , id) => {
         })
     }, [type, id])
     return keywords
+}
+
+export const useGetKeywordData = (id) => {
+    let [keyData, updateData] = useState([])
+    try{
+        fetchKeyWordData(id)
+        .then(data => {
+            console.log(data)
+        })
+    }catch(err)
+    {
+        console.log(err)
+    }
+    return keyData;
 }
