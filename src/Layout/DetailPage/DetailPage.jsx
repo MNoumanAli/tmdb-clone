@@ -1,18 +1,18 @@
 import React from 'react'
 import {  useParams } from 'react-router'
-import { useGetMovieDetail } from '../../utils/Hooks'
+import { useGetKeywords, useGetMovieDetail } from '../../utils/Hooks'
 function DetailPage() {
+    
     const parms = useParams()
     const type = parms.type
     const detail = useGetMovieDetail(type , parms.id)
-    console.log(parms.type)
+    const keyWords = useGetKeywords(parms.type , parms.id)
     let genre = ""
     for( let  i in detail.genres)
     {
         genre = genre + detail.genres[i].name + ", "
     }
-   
-    console.log(detail)
+
   return (
     <div className='detail-page'>
         <div className='detail-img'>

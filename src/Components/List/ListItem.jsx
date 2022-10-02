@@ -15,8 +15,8 @@ function ListItem(props) {
         </div>
         <div className="list-item-content">
             <p className='item-title'>{props.title}</p>
-            <p>{props.release}</p>
-            <p>{props.overview}</p>
+            <p className='item-release'>{props.release}</p>
+            <p className='item-overview'>{props.overview}</p>
         </div>
     </div>
   )

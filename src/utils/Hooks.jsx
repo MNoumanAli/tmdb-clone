@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import {fetchDetail, fetchPopularMovies, fetchPopularShows, fetchSearchResult} from "../API/index"
+import {fetchDetail, fetchKeyWords, fetchPopularMovies, fetchPopularShows, fetchSearchResult} from "../API/index"
 
 export const useGetPMovie = () => {
     const [popularMovies, updateMovies] = React.useState([])
@@ -42,7 +42,6 @@ export const useGetMovieDetail = (type, id) => {
         try{
             fetchDetail(type, id)
             .then(data => {
-                console.log(data.data)
                 updateDetail(data.data)
             }).catch(err => {
                 console.log(err)
@@ -55,10 +54,7 @@ export const useGetMovieDetail = (type, id) => {
     return detail 
 }
 export const useGetResult = (type, search) => {
-    console.log("result")
     const [result, updateResult] = useState([])
-    console.log("before")
-   
     useEffect(() => {
         fetchSearchResult(type, search)
     .then(data => {
@@ -72,4 +68,21 @@ export const useGetResult = (type, search) => {
     })
     }, [type, search])
     return result
+}
+
+export const useGetKeywords = (type , id) => {
+    let [keywords, updateKeyWords] = useState([])
+
+    useEffect(() => {
+        fetchKeyWords(type , id)
+        .then(data => {
+            updateKeyWords(() => {
+                return [...data.data['keywords']]
+            })
+        }).catch(err => {
+            console.log(err)
+            
+        })
+    }, [type, id])
+    return keywords
 }
