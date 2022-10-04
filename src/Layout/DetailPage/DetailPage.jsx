@@ -7,9 +7,10 @@ import KeywordItem from './Keywords/KeywordItem'
 
 
 function DetailPage() {
-    
+
     const {type, id} = useParams()
     const detail = useGetMovieDetail(type , id)   
+    console.log(detail)
     const keyWords = useGetKeywords(type , id)
     const recommendationData = useGetRecommendation(type , id)
 

@@ -9,5 +9,5 @@ export const fetchPopularShows = async () => await API.get(`/tv/popular?api_key=
 export const fetchDetail = async (type,id) => await API.get(`/${type}/${id}?api_key=${API_KEY}&language=en-US&page=1`)
 export const fetchSearchResult = async (type, value) => await API.get(`/search/${type}?api_key=${API_KEY}&language=en-US&page=1&query=${value}&include_adult=false`)
 export const fetchKeyWords = async (type, id) => await API.get(`/${type}/${id}/keywords?api_key=${API_KEY}`)
-export const fetchKeyWordData = async(id) => await API.get(`/keyword/${id}?api_key=${API_KEY}`)
+export const fetchKeyWordData = async(id) => await API.get(`/search/keyword?api_key=${API_KEY}&query=${id}&page=1`)
 export const fetchRecommendation = async (type, id) => await API.get(`${type}/${id}/recommendations?api_key=${API_KEY}&language=en-US&page=1`)

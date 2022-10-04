@@ -10,6 +10,7 @@ export const useGetPMovie = (changeState) => {
                 updateMovies(data["data"].results)
             })
             .catch(err => console.log(err))
+
         }catch(err)
         {
             console.log(err)
@@ -88,10 +89,11 @@ export const useGetKeywords = (type , id) => {
     return keywords
 }
 
-export const useGetKeywordData = (id) => {
+export const useGetKeywordData = (key) => {
     let [keyData, updateData] = useState([])
     try{
-        fetchKeyWordData(id)
+        console.log(key)
+        fetchKeyWordData(key)
         .then(data => {
             console.log(data)
         })
