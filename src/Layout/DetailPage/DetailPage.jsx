@@ -1,16 +1,25 @@
 import React from 'react'
 import {  useParams } from 'react-router'
-import { useGetKeywords, useGetMovieDetail } from '../../utils/Hooks'
+import RecomCard from '../../Components/Cards/RecomCard/RecomCard'
+import Footer from '../../Components/Footer/Footer'
+import { useGetKeywords, useGetMovieDetail, useGetRecommendation } from '../../utils/Hooks'
 import KeywordItem from './Keywords/KeywordItem'
+
+
 function DetailPage() {
     
-    const parms = useParams()
-    const type = parms.type
-    const detail = useGetMovieDetail(type , parms.id)
-    const keyWords = useGetKeywords(parms.type , parms.id)
-    const allKeyWords = keyWords.map(item => {
-        return <KeywordItem key={item.id} id={item.id} name = {item.name} type={parms.type}/>
+    const {type, id} = useParams()
+    const detail = useGetMovieDetail(type , id)   
+    const keyWords = useGetKeywords(type , id)
+    const recommendationData = useGetRecommendation(type , id)
+
+    const recommendation = recommendationData.map(item => {
+        return <RecomCard key={item.id} type={type} id={item.id} poster_path = {item.poster_path} title = {type === "movie" ? item.title : item.name}/>
     })
+    const allKeyWords = keyWords.map(item => {
+        return <KeywordItem key={item.id} id={item.id} name = {item.name} type={type}/>
+    })
+
     let genre = ""
     for( let  i in detail.genres)
     {
@@ -46,8 +55,17 @@ function DetailPage() {
         </div>
 
         <div className='detail-container2'>
-            <div className='review-container'>
+            <div className="other-detail-container">
+                <div className='review-container'>
                 
+                </div>
+
+                <div>
+                    <p className='rec-heading'>Recommendations</p>
+                    <div className='recommendation-container'>
+                        {recommendation}
+                    </div>
+                </div>
             </div>
             <div className='keyword-container'>
                 <p>Keywords</p>
@@ -57,6 +75,7 @@ function DetailPage() {
                
             </div>
         </div>
+        <Footer/>
     </div>
   )
 }

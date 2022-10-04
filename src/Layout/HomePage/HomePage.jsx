@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import MovieCard from '../../Components/Cards/MovieCard/MovieCard'
 import TvShowCard from "../../Components/Cards/TvShowCard/TvShowCard"
 import Footer from '../../Components/Footer/Footer'
@@ -7,8 +7,8 @@ import {useGetPMovie, useGetPShows} from "../../utils/Hooks"
 
 
 function HomePage() {
-
-    const popularMovies = useGetPMovie()
+    const [status, changeStatus]  = useState(false)
+    const popularMovies = useGetPMovie(changeStatus)
     const movieCards = popularMovies.map(single => {
       return <MovieCard key={single.id} id = {single.id} type ="movie" poster_path = {single.poster_path} release = {single.release_date} vote = {single.vote_average}/>
     })
@@ -22,9 +22,10 @@ function HomePage() {
         <Hero/>
         <div className='card'>
           <p>Popular Movies</p>
+          {status ?  
           <div className='card-list'>
             {movieCards}
-          </div>
+          </div>: "loading"}
         </div>
 
         <div className='card'>

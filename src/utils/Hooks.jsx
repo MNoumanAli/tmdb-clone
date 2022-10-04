@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
-import {fetchDetail, fetchKeyWordData, fetchKeyWords, fetchPopularMovies, fetchPopularShows, fetchSearchResult} from "../API/index"
+import {fetchDetail, fetchKeyWordData, fetchKeyWords, fetchPopularMovies, fetchPopularShows, fetchRecommendation, fetchSearchResult} from "../API/index"
 
-export const useGetPMovie = () => {
+export const useGetPMovie = (changeState) => {
     const [popularMovies, updateMovies] = React.useState([])
     useEffect(() => {
         try{
@@ -14,6 +14,7 @@ export const useGetPMovie = () => {
         {
             console.log(err)
         }
+        changeState(true)
     }, [])
     return popularMovies
 }
@@ -99,4 +100,26 @@ export const useGetKeywordData = (id) => {
         console.log(err)
     }
     return keyData;
+}
+
+export const useGetRecommendation = (type, id) => {
+    let [recommendation, changeRecom] = useState([])
+
+    useEffect(() => {
+        try{
+            fetchRecommendation(type, id)
+            .then(data => {
+                console.log(data.data['results'])
+                changeRecom(() => {
+                    return [...data.data['results']]
+                })
+            }).catch(err => {
+                console.log(err)
+            })
+        }catch(err)
+        {
+            console.log(err)
+        }
+    }, [type, id])
+    return recommendation
 }

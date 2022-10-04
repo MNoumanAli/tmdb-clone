@@ -9,6 +9,7 @@
     justify-content: space-between;
     background-color: #0A2222;
     color: white;
+    margin-bottom: 1.7em;
 }
 .detail-container1 .detail > div {
     margin-bottom: 2em;
@@ -47,11 +48,11 @@
 
 .detail-container2{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 .keyword-container{
-    padding: 2em;
-    width: 20%;
+    padding: 0 1em;
+    width: 25%;
     display: flex;
     flex-direction: column;
 }
@@ -68,9 +69,27 @@
     background-color: #E5E5E5;
     border: 1px solid rgb(202, 192, 192);
     border-radius: 4px;
-    padding: 0.4em 0.7em;
     margin: 0.2em;
+    padding: 0.3em 0.7em;
+}
+.other-detail-container{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
 }
 .review-container{
-    width: 70%;
+    width:100%;
+}
+.rec-heading{
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    margin-left: 1em;
+}
+.recommendation-container{
+    margin-left: 0.7em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
 }

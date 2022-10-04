@@ -9,7 +9,7 @@ import "../src/Components/Cards/Style/Cards.css"
 import "../src/Layout/HomePage/style.css"
 import "../src/Layout/DetailPage/style.css"
 import "../src/Components/List/style.css"
-
+import "../src/Components/Cards/RecomCard/style.css"
 ReactDOM.render(
   <App/>,
   document.getElementById("root")
